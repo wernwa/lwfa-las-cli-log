@@ -8,6 +8,8 @@ import time
 import thread
 
 pvs=[]
+sleep = 1
+
 
 if __name__ == "__main__":
 
@@ -31,6 +33,6 @@ if __name__ == "__main__":
         line+='\n'
         sys.stdout.write(line)
         sys.stdout.flush()
-        time.sleep(0.2)
+        time.sleep(sleep)
 
 

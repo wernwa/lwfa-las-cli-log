@@ -1,0 +1,3 @@
+
+# log all pvs to file
+./log-all.py > /media/messuser/Elements/2014-10-17-t11:57-test.log

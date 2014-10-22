@@ -10,9 +10,9 @@ import numpy
 
 sleep = 1 # sleep seconds
 
-volts = PV_CONN('shicane:ps_volt_all')
-currs = PV_CONN('shicane:ps_curr_all')
-temps = PV_CONN('shicane:ps_temp_all')
+volts = PV_CONN('shicane:magn_volt_all')
+currs = PV_CONN('shicane:magn_curr_all')
+temps = PV_CONN('shicane:temp_all')
 
 line = '#time timestamp '
 line += '\tq1_volt\tq2_volt\tq3_volt\tq4_volt\tq5_volt\tq6_volt\tq7_volt\td1_volt\td2_volt'

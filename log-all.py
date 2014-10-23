@@ -8,10 +8,10 @@ import time
 import thread
 import numpy
 
-sleep = 1 # sleep seconds
+sleep = 3 # sleep seconds
 
-volts = PV_CONN('shicane:magn_volt_all')
-currs = PV_CONN('shicane:magn_curr_all')
+volts = PV_CONN('shicane:magn_volt_all', auto_monitor=True )
+currs = PV_CONN('shicane:magn_curr_all', auto_monitor=True )
 temps = PV_CONN('shicane:temp_all')
 
 line = '#time timestamp '
@@ -25,6 +25,8 @@ sys.stdout.write(line)
 relee_plus=0
 relee_minus=24
 sign=None
+
+pv_cnt = 9
 
 
 while True:
@@ -70,16 +72,18 @@ while True:
         if value == None: line += '\tNone'*9
         else:
             arr = value.tostring().split(' ')
-            q1=float(arr[0])
-            q2=float(arr[1])
-            q3=float(arr[2])
-            q4=float(arr[3])
-            q5=float(arr[4])
-            q6=float(arr[5])
-            q7=float(arr[6])
-            d1=float(arr[7])
-            d2=float(arr[8])
-            line += '\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f'%(q1,q2,q3,q4,q5,q6,q7,d1,d2)
+            if len(arr)<pv_cnt: line += '\tNone'*pv_cnt
+            else:
+                q1=float(arr[0])
+                q2=float(arr[1])
+                q3=float(arr[2])
+                q4=float(arr[3])
+                q5=float(arr[4])
+                q6=float(arr[5])
+                q7=float(arr[6])
+                d1=float(arr[7])
+                d2=float(arr[8])
+                line += '\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f'%(q1,q2,q3,q4,q5,q6,q7,d1,d2)
     
         line+='\n'
         sys.stdout.write(line)

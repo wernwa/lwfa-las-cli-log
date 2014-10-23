@@ -36,18 +36,18 @@ while True:
         if value == None: line += '\tNone'*9
         else:
             arr = value.tostring().split(' ')
-            relee=round(float(arr[0]))
-            if relee==relee_plus: sign=1
-            else: sign=-1
-            q1=sign*float(arr[1])
-            q2=sign*float(arr[2])
-            q3=sign*float(arr[3])
-            q4=sign*float(arr[4])
-            q5=sign*float(arr[5])
-            q6=sign*float(arr[6])
-            q7=sign*float(arr[7])
-            d1=sign*float(arr[8])
-            d2=sign*float(arr[9])
+            #relee=round(float(arr[0]))
+            #if relee==relee_plus: sign=1
+            #else: sign=-1
+            q1=float(arr[0])
+            q2=float(arr[1])
+            q3=float(arr[2])
+            q4=float(arr[3])
+            q5=float(arr[4])
+            q6=float(arr[5])
+            q7=float(arr[6])
+            d1=float(arr[7])
+            d2=float(arr[8])
             line += '\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f'%(q1,q2,q3,q4,q5,q6,q7,d1,d2)
     
     
@@ -55,15 +55,15 @@ while True:
         if value == None: line += '\tNone'*9
         else:
             arr = value.tostring().split(' ')
-            q1=sign*float(arr[1])
-            q2=sign*float(arr[2])
-            q3=sign*float(arr[3])
-            q4=sign*float(arr[4])
-            q5=sign*float(arr[5])
-            q6=sign*float(arr[6])
-            q7=sign*float(arr[7])
-            d1=sign*float(arr[8])
-            d2=sign*float(arr[9])
+            q1=float(arr[0])
+            q2=float(arr[1])
+            q3=float(arr[2])
+            q4=float(arr[3])
+            q5=float(arr[4])
+            q6=float(arr[5])
+            q7=float(arr[6])
+            d1=float(arr[7])
+            d2=float(arr[8])
             line += '\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f'%(q1,q2,q3,q4,q5,q6,q7,d1,d2)
     
         value = temps.get()

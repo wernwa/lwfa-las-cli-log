@@ -7,14 +7,17 @@ from PV_CONN import PV_CONN
 import time
 import thread
 
+from setup import *
+
 pvs=[]
-sleep = 1
 
 
 if __name__ == "__main__":
 
-    print 'dude, is just logging relax!'
-    #global pvs
+
+    if len(sys.argv)<=1:
+        print 'usage: ./log.py <epcis_var1> <epcis_var2> <epcis_var3> ...'
+        sys.exit(0)
 
     for i in range(1,len(sys.argv)):
         print sys.argv[i]
@@ -29,10 +32,10 @@ if __name__ == "__main__":
     while True:
         line = '%s\t'%time.strftime("%Y-%m-%H:%M:%S %s")
         for pv in pvs:
-            line += '\t%s'%pv.get()
+            line += '\t%-9s'%pv.get()
         line+='\n'
         sys.stdout.write(line)
         sys.stdout.flush()
-        time.sleep(sleep)
+        time.sleep(sleep_sec)
 
 

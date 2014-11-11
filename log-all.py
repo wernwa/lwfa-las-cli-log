@@ -8,11 +8,12 @@ import time
 import thread
 import numpy
 
-sleep = 3 # sleep seconds
+from setup import *
 
-volts = PV_CONN('shicane:magn_volt_all', auto_monitor=True )
-currs = PV_CONN('shicane:magn_curr_all', auto_monitor=True )
-temps = PV_CONN('shicane:temp_all')
+
+volts = PV_CONN('chicane:magn_volt_all', auto_monitor=True )
+currs = PV_CONN('chicane:magn_curr_all', auto_monitor=True )
+temps = PV_CONN('chicane:temp_all', auto_monitor=True )
 
 line = '#time timestamp '
 line += '\tq1_volt\tq2_volt\tq3_volt\tq4_volt\tq5_volt\tq6_volt\tq7_volt\td1_volt\td2_volt'
@@ -33,7 +34,7 @@ while True:
 
     try:
         line = '%s\t'%time.strftime("%Y-%m-%H:%M:%S %s")
-    
+
         value = volts.get()
         if value == None: line += '\tNone'*9
         else:
@@ -51,8 +52,8 @@ while True:
             d1=float(arr[7])
             d2=float(arr[8])
             line += '\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f'%(q1,q2,q3,q4,q5,q6,q7,d1,d2)
-    
-    
+
+
         value = currs.get()
         if value == None: line += '\tNone'*9
         else:
@@ -67,7 +68,7 @@ while True:
             d1=float(arr[7])
             d2=float(arr[8])
             line += '\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f'%(q1,q2,q3,q4,q5,q6,q7,d1,d2)
-    
+
         value = temps.get()
         if value == None: line += '\tNone'*9
         else:
@@ -84,11 +85,11 @@ while True:
                 d1=float(arr[7])
                 d2=float(arr[8])
                 line += '\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f'%(q1,q2,q3,q4,q5,q6,q7,d1,d2)
-    
+
         line+='\n'
         sys.stdout.write(line)
         sys.stdout.flush()
-        time.sleep(sleep)
+        time.sleep(sleep_sec)
 
 
     except KeyboardInterrupt:

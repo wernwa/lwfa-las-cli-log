@@ -29,6 +29,18 @@ sign=None
 
 pv_cnt = 9
 
+# for the convertion from pv-array,
+# display a number or if None the dashes
+def get_num_or_none(obj):
+    if obj == 'None' or obj == None: return 'None'
+    else:
+        try:
+            num = float(obj)
+        except Exception as e:
+            print traceback.format_exc()
+
+        return '%.3f'%num
+
 
 while True:
 
@@ -42,32 +54,32 @@ while True:
             #relee=round(float(arr[0]))
             #if relee==relee_plus: sign=1
             #else: sign=-1
-            q1=float(arr[0])
-            q2=float(arr[1])
-            q3=float(arr[2])
-            q4=float(arr[3])
-            q5=float(arr[4])
-            q6=float(arr[5])
-            q7=float(arr[6])
-            d1=float(arr[7])
-            d2=float(arr[8])
-            line += '\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f'%(q1,q2,q3,q4,q5,q6,q7,d1,d2)
+            q1=get_num_or_none(arr[0])
+            q2=get_num_or_none(arr[1])
+            q3=get_num_or_none(arr[2])
+            q4=get_num_or_none(arr[3])
+            q5=get_num_or_none(arr[4])
+            q6=get_num_or_none(arr[5])
+            q7=get_num_or_none(arr[6])
+            d1=get_num_or_none(arr[7])
+            d2=get_num_or_none(arr[8])
+            line += '\t%-9s\t%-9s\t%-9s\t%-9s\t%-9s\t%-9s\t%-9s\t%-9s\t%-9s'%(q1,q2,q3,q4,q5,q6,q7,d1,d2)
 
 
         value = currs.get()
         if value == None: line += '\tNone'*9
         else:
             arr = value.tostring().split(' ')
-            q1=float(arr[0])
-            q2=float(arr[1])
-            q3=float(arr[2])
-            q4=float(arr[3])
-            q5=float(arr[4])
-            q6=float(arr[5])
-            q7=float(arr[6])
-            d1=float(arr[7])
-            d2=float(arr[8])
-            line += '\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f'%(q1,q2,q3,q4,q5,q6,q7,d1,d2)
+            q1=get_num_or_none(arr[0])
+            q2=get_num_or_none(arr[1])
+            q3=get_num_or_none(arr[2])
+            q4=get_num_or_none(arr[3])
+            q5=get_num_or_none(arr[4])
+            q6=get_num_or_none(arr[5])
+            q7=get_num_or_none(arr[6])
+            d1=get_num_or_none(arr[7])
+            d2=get_num_or_none(arr[8])
+            line += '\t%-9s\t%-9s\t%-9s\t%-9s\t%-9s\t%-9s\t%-9s\t%-9s\t%-9s'%(q1,q2,q3,q4,q5,q6,q7,d1,d2)
 
         value = temps.get()
         if value == None: line += '\tNone'*9
@@ -75,16 +87,16 @@ while True:
             arr = value.tostring().split(' ')
             if len(arr)<pv_cnt: line += '\tNone'*pv_cnt
             else:
-                q1=float(arr[0])
-                q2=float(arr[1])
-                q3=float(arr[2])
-                q4=float(arr[3])
-                q5=float(arr[4])
-                q6=float(arr[5])
-                q7=float(arr[6])
-                d1=float(arr[7])
-                d2=float(arr[8])
-                line += '\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f'%(q1,q2,q3,q4,q5,q6,q7,d1,d2)
+                q1=get_num_or_none(arr[0])
+                q2=get_num_or_none(arr[1])
+                q3=get_num_or_none(arr[2])
+                q4=get_num_or_none(arr[3])
+                q5=get_num_or_none(arr[4])
+                q6=get_num_or_none(arr[5])
+                q7=get_num_or_none(arr[6])
+                d1=get_num_or_none(arr[7])
+                d2=get_num_or_none(arr[8])
+                line += '\t%-9s\t%-9s\t%-9s\t%-9s\t%-9s\t%-9s\t%-9s\t%-9s\t%-9s'%(q1,q2,q3,q4,q5,q6,q7,d1,d2)
 
         line+='\n'
         sys.stdout.write(line)

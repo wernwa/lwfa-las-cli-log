@@ -6,6 +6,7 @@ from epics import PV
 from PV_CONN import PV_CONN
 import time
 import thread
+from pcaspy import Alarm, Severity
 
 from setup import *
 
@@ -32,7 +33,9 @@ if __name__ == "__main__":
     while True:
         line = '%s\t'%time.strftime("%Y-%m-%H:%M:%S %s")
         for pv in pvs:
-            line += '\t%-9s'%pv.get()
+            value = 'None'
+            if pv.severity!=Severity.INVALID_ALARM: value=pv.get()       # Severity.INVALID_ALARM = 3
+            line += '\t%-9s'%value
         line+='\n'
         sys.stdout.write(line)
         sys.stdout.flush()

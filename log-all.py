@@ -45,7 +45,7 @@ def get_num_or_none(obj):
 while True:
 
     try:
-        line = '%s\t'%time.strftime("%Y-%m-%H:%M:%S %s")
+        line = '%s\t'%time.strftime("%Y-%m-%d_%H:%M:%S %s")
 
         value = volts.get()
         if value == None: line += '\tNone'*9

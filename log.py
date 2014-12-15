@@ -31,7 +31,7 @@ if __name__ == "__main__":
 
 
     while True:
-        line = '%s\t'%time.strftime("%Y-%m-%H:%M:%S %s")
+        line = '%s\t'%time.strftime("%Y-%m-%d_%H:%M:%S %s")
         for pv in pvs:
             value = 'None'
             if pv.severity!=Severity.INVALID_ALARM: value=pv.get()       # Severity.INVALID_ALARM = 3

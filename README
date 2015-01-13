@@ -1,0 +1,36 @@
+#
+#   EPICs opi as client for logging the temperature, voltage and current of the magnets in the chicane.
+#
+#   author: Watler Werner
+#   email: wernwa@gmail.com
+
+START LOGGING
+
+The log.py script takes PV names as parameters and displays the current values on the standard output
+
+./log.py chicane:q1:temp chicane:q1:volt chicane:q1:curr
+
+The log-all.py script loggs all 9x3 values of the magnets and also displays it on the standard output
+
+./log-all.py
+
+The setup.py contains for both logging scripts some setup variables.
+
+
+
+
+LOGGING TO A FILE
+
+To log to a file, redirect the console output with > sign
+
+./log-all > myloggingfile.log
+
+
+
+DEPENDENCIES
+    python 2.7.5
+    pyepics (http://pyepics.github.io/pyepics/installation.html)
+        sudo apt-get install python-pip
+        sudo pip install pyepics
+
+

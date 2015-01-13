@@ -1,4 +1,10 @@
 #!/usr/bin/python
+#
+#   This script takes PVs names as arguments and prints it to the standard
+#   output.
+#
+#   author: Watler Werner
+#   email: wernwa@gmail.com
 
 
 import sys

@@ -1,5 +1,10 @@
 #!/usr/bin/python
-
+#
+#   This script loggs all 9x3 chicane PVs and prints the result to the standard
+#   output.
+#
+#   author: Watler Werner
+#   email: wernwa@gmail.com
 
 import sys
 from epics import PV
